@@ -63,7 +63,7 @@ class Cipher(ABC):
                 self.encrept()
 
             temp = self.__url.split('.')
-            new_url = temp[0] + '_encrepted.' + temp[1]
+            new_url = temp[0] + '_encrypted.' + temp[1]
 
             with open(new_url, 'w') as new_f:
                 new_f.write(self.__encrepted_text)
@@ -75,7 +75,7 @@ class Cipher(ABC):
             print(err)
         except Exception as err:
             print(err)
-            print("erro at Cipher class")
+            print("error at Cipher class")
 
 
     def decrept_file(self, url='') -> str:
@@ -91,7 +91,7 @@ class Cipher(ABC):
                 self.decrept()
 
             temp = self.__url.split('.')
-            new_url = temp[0] + '_decrepted.' + temp[1]
+            new_url = temp[0] + '_decrypted.' + temp[1]
 
             with open(new_url, 'w') as new_f:
                 new_f.write(self.__decrepted_text)
