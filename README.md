@@ -1,6 +1,6 @@
 # Cipherman
 
-Lightweight command-line toolkit implementing classical ciphers (Caesar, Monoalphabetic, Playfair, Hill) for learning and experimentation.
+Lightweight command-line toolkit implementing classical ciphers (Caesar, Monoalphabetic, Playfair, Hill, Vigenere) for learning and experimentation.
 
 ---
 
@@ -31,6 +31,7 @@ Lightweight command-line toolkit implementing classical ciphers (Caesar, Monoalp
 - Monoalphabetic substitution
 - Playfair cipher
 - Hill cipher (matrix-based)
+- Vigenere cipher (key-based and auto-key)
 - Interactive text mode and file mode
 
 ## Prerequisites
@@ -88,7 +89,7 @@ If `cipherman` is not on your PATH after installation, run it with `python3 -m c
 
 Key flags (run `cipherman -h` for full help):
 
-- `-a, --algorithm` : choose `caesar` | `mono` | `play` | `hill`
+- `-a, --algorithm` : choose `caesar` | `mono` | `play` | `hill` | `vigenere` | `vigenere-auto`
 - `-e, --encryption` : perform encryption
 - `-d, --decryption` : perform decryption
 - `-t, --text`       : use interactive text mode (prompts for text and key)
@@ -126,6 +127,48 @@ cipherman -a caesar -e -f
 ```bash
 cipherman -a hill -e -t
 # enter plaintext and key string (length must be a perfect square)
+```
+
+- Encrypt text with Vigenere (run, then follow prompts):
+
+```bash
+cipherman -a vigenere -e -t
+# then enter plaintext and the key when prompted
+```
+
+- Decrypt text with Vigenere:
+
+```bash
+cipherman -a vigenere -d -t
+# enter ciphertext and the key
+```
+
+- Encrypt a file with Vigenere (prompts for input and output filenames and key):
+
+```bash
+cipherman -a vigenere -e -f
+# enter input filename, output filename, and key
+```
+
+- Encrypt text with Vigenere auto-key (run, then follow prompts):
+
+```bash
+cipherman -a vigenere-auto -e -t
+# then enter plaintext and the key when prompted
+```
+
+- Decrypt text with Vigenere auto-key:
+
+```bash
+cipherman -a vigenere-auto -d -t
+# enter ciphertext and the key
+```
+
+- Encrypt a file with Vigenere auto-key (prompts for input and output filenames and key):
+
+```bash
+cipherman -a vigenere-auto -e -f
+# enter input filename, output filename, and key
 ```
 
 Notes:
