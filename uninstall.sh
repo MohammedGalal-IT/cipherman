@@ -36,5 +36,6 @@ else
 	fi
 fi
 
+sed -i '/eval "$(register-python-argcomplete cipherman)"/d' ~/.bashrc
 echo "Uninstall complete."
 

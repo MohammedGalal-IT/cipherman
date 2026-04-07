@@ -1,6 +1,13 @@
 from abc import ABC, abstractmethod
+import glob
+import os
 
-from .utils import clear_screen
+try:
+    import readline
+except ImportError:
+    readline = None
+
+from .utils import configure_input_completion
 
 
 class Cipher(ABC):
@@ -164,9 +171,12 @@ class Cipher(ABC):
                 raise ValueError("Expected 'text' or 'file' for the first argument (target) at cmd_start() method")
             if operation not in ["en", "de"]:
                 raise ValueError("Expected 'en' or 'de' for the second argument (operation) at cmd_start() method")
+            
             if target == "text":
                 print("\n", "-"*20)
+                configure_input_completion()
                 self.__text = input("Enter Text >> ")
+                configure_input_completion()
                 key = input(f"\nEnter Key({key_type.__name__}) >> ")
                 self.__key = int(key) if key_type == int else key
                 text = ''
@@ -182,7 +192,9 @@ class Cipher(ABC):
 
             else:
                 print("\n", "-"*20)
+                configure_input_completion(path=True)
                 self.__url = input("Enter File Path >> ")
+                configure_input_completion()
                 key = input(f"\nEnter Key({key_type.__name__}) >> ")
                 self.__key = int(key) if key_type == int else key
                 text = ''

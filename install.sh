@@ -13,8 +13,11 @@ if ! pipx install .; then
     sudo apt install pipx
     pipx install .
     pipx ensurepath
-    echo "Open new terminal to use cipherman command"
 fi
 
+activate-global-python-argcomplete --user
+echo 'eval "$(register-python-argcomplete cipherman)"' >> ~/.bashrc
+source ~/.bashrc
+echo "Open new terminal to use cipherman command"
 
 
