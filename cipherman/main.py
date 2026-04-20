@@ -1,5 +1,6 @@
 from pathlib import Path
 from argparse import ArgumentParser
+from cipherman.DES_cipher import DESCipher
 import numpy as np
 import argcomplete
 
@@ -9,6 +10,7 @@ from .playfair_cipher import PlayfairCipher
 from .hill_cipher import HillCipher
 from .vigenere_cipher import VigenereCipher
 from .vigenere_autokey_cipher import VigenereAutokeyCipher
+from .DES_cipher import DESCipher
 from .cipher_helper import CipherHelper
 
 
@@ -73,6 +75,8 @@ def main():
 
 def test():
     print("Testing Cipherman...")
+    obj = DESCipher()
+    print(obj.permutation_choice_1("0001001100110100010101110111100110011011101111001101111111110001"))
 
 
 if __name__ == "__main__":

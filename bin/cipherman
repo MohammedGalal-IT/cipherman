@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+
 
 """ 
 for some reason, when I try to import the main function from the main.py file, it gives me an error that the cipherman package is not found, even though it is in the same directory as the setup.py file. So I had to add the project root directory to the Python path before importing the main function.
@@ -10,6 +10,7 @@ import os
 # Add the project root directory to the Python path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from cipherman.main import main
-main()
+from cipherman.main import main, test
+# main()
+test()
 
